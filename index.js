@@ -15,11 +15,12 @@ app.post("/sendmail", (req, res) => {
       service: "gmail",
       secure: true,
       auth: {
-        user: process.env.USER_MAIL , // generated ethereal user
+        user: process.env.USER_MAIL, // generated ethereal user
         pass: process.env.USER_PASS, // generated ethereal password
       },
     });
     const mailOptions = {
+      from: req.body.frommail,
       to: req.body.tomail,
       subject: "Important Email Recieve",
       text: "Important Email Recieve",
